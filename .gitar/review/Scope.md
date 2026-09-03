@@ -1,3 +1,3 @@
 # Review scope
-- Report each distinct root cause once. If a response-shape change breaks its own tests, report that as a single finding — do not additionally raise a separate finding comparing it against how sibling endpoints are shaped.
-- Do not require a new test to be added for every internal logic change. The existing rule that new HTTP endpoints must include a test still applies as-is; a modification inside an existing endpoint's logic does not need its own dedicated test to avoid a finding.
+- Only report Critical and Important severity findings in Code Review on this repository. Do not report Suggestion or Quality-level findings at all.
+- Report each distinct root cause once. If a response-shape change breaks its own tests, cover that in a single finding, including any note about consistency with sibling endpoints. Do not raise a second, separate finding purely comparing endpoint shapes.
