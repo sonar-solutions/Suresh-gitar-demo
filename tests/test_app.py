@@ -52,3 +52,10 @@ def test_search(client):
     assert resp.status_code == 200
     titles = [i["title"] for i in resp.get_json()]
     assert titles == ["Buy milk"]
+
+
+def test_create_dedupes_tags(client):
+    resp = client.post("/items", json={"title": "Buy milk", "tags": ["home", "work", "home"]})
+    assert resp.status_code == 201
+    item = resp.get_json()
+    assert item["tags"] == ["home", "work"]
